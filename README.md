@@ -70,6 +70,8 @@ works with pm2 process manager.
 --`pm2 set pm2-telegram-notification:error (true/false)`
 * configure error_log _(optional)_ default: true
 --`pm2 set pm2-telegram-notification:error_log (true/false)`
+* configure ignored_apps _(optional)_ default: null
+--`pm2 set pm2-telegram-notification:ignored_apps list,of,app,names,separated,by,a,comma`
 
 ##### Configuration definition 😎
 
@@ -82,6 +84,7 @@ works with pm2 process manager.
 * `violation_time` = time interval gap in which if another alerts occurs is said to count as violation, default is **10000**
 * `violation_count` = violation count limit after which the notification is delayed with debounce time, default is **8**
 * `debounce` = delay/debounce time applied in milliseconds to notification in case if violation count limit is reached, default is **30000**
+* `ignored_apps` = the list of the apps that will be ignored in error logs
 
 
 

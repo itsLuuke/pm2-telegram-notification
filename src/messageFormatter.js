@@ -46,7 +46,7 @@ const MessageFormatter = ({ type, data }, config) => {
   }
 
   if (type === 'LOG_ERROR') {
-    if (!config.error_log) {
+    if (!config.error_log || config.ignored_apps.includes(data.process.name)) {
       return null;
     }
     const serviceName = data.process.name;

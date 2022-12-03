@@ -164,6 +164,13 @@ const messenger = require('./src/messenger')
 // });
 
 const mConfig = pmx.initModule();
+
+if (mConfig.ignored_apps === ""){
+  mConfig.ignored_apps = [];
+}else{
+  mConfig.ignored_apps = mConfig.ignored_apps.split(',');
+}
+
 const mess = messenger(mConfig);
 
 pm2.launchBus(function(err, bus) {

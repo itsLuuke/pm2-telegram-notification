@@ -144,6 +144,9 @@ const Messenger = (config) => {
   const debounce_engine = new DebounceEngine(config);
   const send = (data) => {
     const msg = messageFormatter(data, config);
+    if (msg == null) {
+      return;
+    }
     self.messaging_mode = debounce_engine.is_debounce_needed()? messagingModes.collecting:messagingModes.instant;
     console.log('Messaging Mode set as='+self.messaging_mode);
     if (self.messaging_mode ==  messagingModes.instant) {
